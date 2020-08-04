@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.runner.RunCucumberTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="Zeyneps-MacBook-Pro.local" time="0.0">
+  <properties/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Jul 16, 2020 12:34:13 PM cucumber.runtime.model.FeatureBuilder parse
+WARNING: Duplicate feature ignored. file:src/test/resources/features/FpsInWebhookNotificationNegativeScenario.feature was identical to file:src/test/resources/features/FpsInWebhookNotificationNegative.feature
+]]></system-err>
+</testsuite>

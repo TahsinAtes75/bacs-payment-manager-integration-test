@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Add/Update) Payee Endpoint</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Add/Update) Payee Endpoint</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Add/Update) Payee Endpoint</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">7.948s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Debtor account number is wrong(FPSPM - PUT </td>
+<td class="success">1.258s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Debtor sort code is wrong(FPSPM - PUT </td>
+<td class="success">0.766s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">User stores a payee successfully(FPSPM - PUT </td>
+<td class="success">2.371s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">User updates a payee successfully(FPSPM - PUT </td>
+<td class="success">0.720s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">When the &quot;Authorization&quot; header parameter is empty(FPSPM - PUT </td>
+<td class="success">0.268s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">When there is invalid (non-existent) subscription-key(FPSPM - PUT </td>
+<td class="success">0.782s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">jwt - expired token(FPSPM - PUT </td>
+<td class="success">0.268s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">jwt - invalid token(FPSPM - PUT </td>
+<td class="success">0.316s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">jwt - token belonged to another customer(FPSPM - PUT </td>
+<td class="success">0.899s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">jwt - token with a type other than &quot;CUSTOMER&quot;(FPSPM - PUT </td>
+<td class="success">0.300s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>@feature @runner
+Feature: FPSPM - PUT (Add/Update) Payee Endpoint
+  In case user has requested to store a new payee, 200 is returned and payee is saved in db
+  In case user has requested to update a payee who s/he has already stored, 200 is returned and payee is updated in db
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_1 @positive
+  Scenario: User stores a payee successfully                                                                                      ?[90m# src/test/resources/features/payeeStore.feature:14?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m200?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_2 @positive
+  Scenario: User updates a payee successfully                                                                                     ?[90m# src/test/resources/features/payeeStore.feature:33?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m200?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_3 @negative
+  Scenario: jwt - token belonged to another customer                                                                              ?[90m# src/test/resources/features/payeeStore.feature:55?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m401?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_4 @negative
+  Scenario: jwt - expired token                                                                                                                                                                                                                                                                                                                                                             ?[90m# src/test/resources/features/payeeStore.feature:83?[0m
+    ?[32mAnd ?[0m?[32mI set header &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; parameter with value &quot;?[0m?[32m?[1meyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI1NGJkMzlhMC1mZmFjLTQ5ZDYtOTM5OC1kNjE0YWQzOGRkOWIiLCJpc3MiOiJIeW1uYWkiLCJzdWIiOiI2NzhiM2I2NC05MzRkLTQ1NjAtYjY2NC01NjQwNDZjMmRjNWUiLCJzY29wZSI6IkNVU1RPTUVSIiwiaWF0IjoxNTkzNjg1Nzc3LCJleHAiOjU5NDI5MDU3N30.qepWW01EVsvSjimyFxsbdm55FdwD74q-b8j65oMNiU4NspLjK_UhO3hnYPWllt-gC6GIxr5pktoliJhKJCqxhg?[0m?[32m&quot;?[0m ?[90m# RequestSteps.i_set_header_parameter_with_value(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                                                            ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                           ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                                                                              ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m401?[0m                                                                                                                                                                                                                                                                                                                                                  ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                                                                                                                                                                                                                                                                              ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_5 @negative
+  Scenario: jwt - invalid token                                                                   ?[90m# src/test/resources/features/payeeStore.feature:103?[0m
+    ?[32mAnd ?[0m?[32mI set header &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; parameter with value &quot;?[0m?[32m?[1mxyz?[0m?[32m&quot;?[0m                                   ?[90m# RequestSteps.i_set_header_parameter_with_value(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m401?[0m                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_6 @negative
+  Scenario: jwt - token with a type other than &quot;CUSTOMER&quot;                                                                                                                                                                                                                                                                                                                              ?[90m# src/test/resources/features/payeeStore.feature:123?[0m
+    ?[32mAnd ?[0m?[32mI set header &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; parameter with value &quot;?[0m?[32m?[1meyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI1NGJkMzlhMC1mZmFjLTQ5ZDYtOTM5OC1kNjE0YWQzOGRkOWIiLCJpc3MiOiJIeW1uYWkiLCJzdWIiOiI2NzhiM2I2NC05MzRkLTQ1NjAtYjY2NC01NjQwNDZjMmRjNWUiLCJzY29wZSI6IlhZWiIsImlhdCI6MTU5MzY4NTc3NywiZXhwIjoyNTk0MjkwNTc3fQ.C_SoTbwUJ7UCtV5VvvuV7sKcjsM5SxLiHMRZidQaKqoh7fwyhk-zdXTYcC222ir2R9Ii-UOva0auWMoBrZ4Cdg?[0m?[32m&quot;?[0m ?[90m# RequestSteps.i_set_header_parameter_with_value(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                                                       ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                      ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                                                                                                                                                                                                                                                                         ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m401?[0m                                                                                                                                                                                                                                                                                                                                             ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                                                                                                                                                                                                                                                                         ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_7 @negative
+  Scenario: When the &quot;Authorization&quot; header parameter is empty                                    ?[90m# src/test/resources/features/payeeStore.feature:145?[0m
+    ?[32mAnd ?[0m?[32mI set header &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; parameter with value &quot;?[0m?[32m?[1m?[0m?[32m&quot;?[0m                                      ?[90m# RequestSteps.i_set_header_parameter_with_value(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m400?[0m                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_8 @negative
+  Scenario: When there is invalid (non-existent) subscription-key                                                                 ?[90m# src/test/resources/features/payeeStore.feature:165?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body in json file at &quot;?[0m?[32m?[1mrequests/payee.json?[0m?[32m&quot;?[0m                                                                  ?[90m# RequestSteps.i_set_request_body_in_json_file_at(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m06b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m400?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_9 @negative
+  Scenario: Debtor account number is wrong                                                                                        ?[90m# src/test/resources/features/payeeStore.feature:194?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body with information given in the following json?[0m                                                           ?[90m# RequestSteps.i_set_request_body_with_information_given_in_the_following_json(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m404?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+
+  Background:                                                                              ?[90m# src/test/resources/features/payeeStore.feature:7?[0m
+    ?[32mGiven ?[0m?[32mI set global values from properties file at &quot;?[0m?[32m?[1mproperties/globalValues.properties?[0m?[32m&quot;?[0m ?[90m# BaseSteps.i_set_global_values_from_json_file(String)?[0m
+    ?[32mAnd ?[0m?[32mI set REST API url as &quot;?[0m?[32m?[1mbase_url_test?[0m?[32m&quot;?[0m                                              ?[90m# RequestSteps.i_set_REST_API_url_running_as(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request header content type as ?[0m?[32m?[1mJSON?[0m                                          ?[90m# RequestSteps.i_set_request_header_content_type_as(String)?[0m
+
+  @feature @runner @BANK-2295 @BANK-3992 @BANK-2295_10 @negative
+  Scenario: Debtor sort code is wrong                                                                                             ?[90m# src/test/resources/features/payeeStore.feature:239?[0m
+    ?[32mAnd ?[0m?[32mI have been authenticated at &quot;?[0m?[32m?[1msecurity_manager_customer_login_endpoint_test?[0m?[32m&quot; with information given in the following json?[0m ?[90m# AuthorisationSteps.i_have_been_authenticated_at_with_information_given_in_the_following_json(String,String)?[0m
+    ?[32mAnd ?[0m?[32mI have stored token from path &quot;?[0m?[32m?[1mtoken?[0m?[32m&quot;?[0m                                                                                     ?[90m# AuthorisationSteps.i_have_stored_token_from_path_access_token(String)?[0m
+    ?[32mAnd ?[0m?[32mI have added value token in key &quot;?[0m?[32m?[1mAuthorization?[0m?[32m&quot; at header?[0m                                                                 ?[90m# AuthorisationSteps.i_have_added_value_token_in_key_at_headers(String)?[0m
+    ?[32mAnd ?[0m?[32mI set request body with information given in the following json?[0m                                                           ?[90m# RequestSteps.i_set_request_body_with_information_given_in_the_following_json(String)?[0m
+    ?[32mAnd ?[0m?[32mI set path parameter &quot;?[0m?[32m?[1msubscription-key?[0m?[32m&quot; with value &quot;?[0m?[32m?[1m96b02328-7d4d-36d5-8ce6-692cfad77fb7?[0m?[32m&quot;?[0m                                 ?[90m# RequestSteps.i_set_path_parameter_with_value(String,String)?[0m
+    ?[32mWhen ?[0m?[32mI ?[0m?[32m?[1mPUT?[0m?[32m request to &quot;?[0m?[32m?[1mput_payee_endpoint?[0m?[32m&quot;?[0m                                                                                    ?[90m# RequestSteps.a_request_to_path_is_made(String,String)?[0m
+    ?[32mAnd ?[0m?[32mresponse status code should be ?[0m?[32m?[1m404?[0m                                                                                        ?[90m# ResponseSteps.response_status_code_should_be(int)?[0m
+    ?[32mAnd ?[0m?[32mresponse body should be following json?[0m                                                                                    ?[90m# ResponseSteps.response_should_be_json(String)?[0m
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at 16 Jul 2020, 12:34:21</p>
+</div>
+</div>
+</body>
+</html>
