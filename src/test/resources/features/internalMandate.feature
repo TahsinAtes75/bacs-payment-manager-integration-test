@@ -43,7 +43,7 @@ Feature: BACSM - Internal Mandate
       {
         "errors": [
           {
-            "code": "7...",
+            "code": "7014",
             "description": "Unauthorized token"
           }
         ]
@@ -255,7 +255,7 @@ Feature: BACSM - Internal Mandate
       {
         "errors": [
           {
-            "code": "7005",
+            "code": "7007",
             "description": "Debtor account not found"
           }
         ]
@@ -295,7 +295,7 @@ Feature: BACSM - Internal Mandate
       {
         "errors": [
           {
-            "code": "7005",
+            "code": "7007",
             "description": "Debtor account not found"
           }
         ]
