@@ -38,7 +38,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 401
     And response body should be following json
     """
@@ -71,7 +71,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 401
     And response body should be following json
     """
@@ -104,7 +104,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 401
     And response body should be following json
     """
@@ -137,7 +137,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 401
     And response body should be following json
     """
@@ -173,7 +173,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 400
     And response body should be following json
     """
@@ -214,7 +214,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     Then response status code should be 404
     And response body should be following json
     """
@@ -256,7 +256,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e506"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     And response status code should be 400
     And response body should be following json
     """
@@ -298,7 +298,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     And response status code should be 404
     And response body should be following json
     """
@@ -339,7 +339,7 @@ Feature: BACSM - Internal Cancel Mandate
       }
     """
     And I set path parameter "subscription-key" with value "07538be8-3e3c-3e6a-965e-91b4c774e505"
-    When I PATCH request to "internal-cancel_mandate_endpoint"
+    When I PUT request to "internal-cancel_mandate_endpoint"
     And response status code should be 404
     And response body should be following json
     """
