@@ -1,4 +1,4 @@
-@feature
+@feature @runner
 Feature: BACSM - Internal Mandate
   In case Customer or Agent initiated a mandate request
 
@@ -117,7 +117,7 @@ Feature: BACSM - Internal Mandate
 
   @BANK-5212 @BANK-5365 @BANK-5212_4 @negative
   Scenario: jwt - token with a type other than "CUSTOMER" or "AGENT"
-    And I set header "Authorization" parameter with value "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3OTU0ODgyOC1hN2NjLTQxYzctYTZiNy01NWYwOTA3ODY0MzYiLCJpc3MiOiJIeW1uYWkiLCJzdWIiOiI4MzcwMTZiMi00ZDA0LTRiNzYtODNiNi0xYWYyY2QxYThiNzAiLCJzY29wZSI6Ik9USEVSIiwiaWF0IjoxNjAwNDM5NDQ3LCJleHAiOjE2MDEwNDQyNDd9.ejbxoDTXPOKGlwccwN1jPxL6lbsLPlk1P_OMciU3DVTJiN1is8sWi6ODZF97wm5smTGHly_roDDwJ2gvADCL5A"
+    And I set header "Authorization" parameter with value "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI3OTU0ODgyOC1hN2NjLTQxYzctYTZiNy01NWYwOTA3ODY0MzYiLCJpc3MiOiJIeW1uYWkiLCJzdWIiOiI4MzcwMTZiMi00ZDA0LTRiNzYtODNiNi0xYWYyY2QxYThiNzAiLCJzY29wZSI6Ik9USEVSIiwiaWF0IjoxNjAwNDM5NDQ3LCJleHAiOjE3MDEwNDQyNDd9.a8ofgx_ClvYNtQ2XADGEk-7Uu1qa9Hl_aY03aKy9Relsfn9S4bJB_brN6-hRB3VoAIC9VQi9fgZfftB3UhJ7Tw"
     And I set request body with information given in the following json
     """
       {
