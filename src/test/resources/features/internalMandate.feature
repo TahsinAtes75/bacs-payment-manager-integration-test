@@ -1,4 +1,4 @@
-@feature @runner
+@feature
 Feature: BACSM - Internal Mandate
   In case Customer or Agent initiated a mandate request
 

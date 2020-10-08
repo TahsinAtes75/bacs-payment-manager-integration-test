@@ -1,4 +1,4 @@
-@feature @runner
+@feature
 Feature: BACSM - Internal Cancel Mandate
   In case Customer or Agent initiated to cancel a mandate
   Only mandates with "ACTIVE" status are ok to be requested to be cancelled
